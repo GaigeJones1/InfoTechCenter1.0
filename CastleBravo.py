@@ -1,7 +1,8 @@
 import sys  # Importing sys module to use sys.stdout.write for printing without a newline.
 import time  # Importing time module to create a delay using time.sleep.
 
-print("\nWelcome to InfoTechCenter V1.0\n")  # Welcoming the user and printing an introductory message.
+# Adding color to the welcome message (using Cyan text color).
+print("\033[96m\nWelcome to InfoTechCenter V1.0\n\033[0m")  # Cyan color
 
 x = 0  # Counter to keep track of the number of iterations in the loop.
 ellipsis = 0  # Counter to control the number of dots displayed after the message.
@@ -10,8 +11,8 @@ ellipsis = 0  # Counter to control the number of dots displayed after the messag
 while x != 20:
     x += 1  # Increment the loop counter by 1 in each iteration.
 
-    # Dynamically updating the message with a varying number of dots at the end.
-    message = ("Infotech Center System Booting" + "." * ellipsis)
+    # Dynamically updating the message with a varying number of dots at the end (in Yellow).
+    message = "\033[93m" + ("Infotech Center System Booting" + "." * ellipsis) + "\033[0m"  # Yellow color
 
     ellipsis += 1  # Increment the ellipsis counter to increase the number of dots.
 
@@ -26,4 +27,6 @@ while x != 20:
 
     # When the loop counter reaches 20, the booting process is considered complete.
     if x == 20:
-        print("\n\nOperating System Booted Up - Retina Scanned - Access Granted")  # Final message after the loop ends.
+        # Adding color to the final message (using Green text color).
+        print("\033[92m\n\nOperating System Booted Up - Retina Scanned - Access Granted\033[0m")  # Green color
+
