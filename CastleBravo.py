@@ -4,6 +4,9 @@ import time  # Importing time module to create a delay using time.sleep.
 # Adding color to the welcome message (using Cyan text color).
 print("\033[96m\nWelcome to InfoTechCenter V1.0\n\033[0m")  # Cyan color
 
+timeToSleep = 2 #Variable to set the time library to 2 seconds when called
+time.sleep(timeToSleep) #Calling the time sleep library with the variable timeToSleep value
+
 x = 0  # Counter to keep track of the number of iterations in the loop.
 ellipsis = 0  # Counter to control the number of dots displayed after the message.
 
@@ -19,7 +22,7 @@ while x != 20:
     # Using sys.stdout.write with "\r" to overwrite the previous line with the updated message.
     sys.stdout.write("\r" + message)
 
-    time.sleep(.5)  # Adding a delay of 0.5 seconds to simulate a booting process.
+    time.sleep(0.25)  # Adding a delay of 0.25 seconds to simulate a booting process.
 
     # Resetting the ellipsis counter to 0 after reaching 3 dots, to keep it between 0 and 3.
     if ellipsis == 4:
