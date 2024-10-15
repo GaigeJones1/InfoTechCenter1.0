@@ -2,9 +2,7 @@
 print("\n*****************************\n")
 print("Weather Branch\n")
 
-# Import necessary libraries: 
-# 'random' is used for randomly selecting a weather condition,
-# 'sleep' from 'time' introduces delays in output to simulate processing.
+# Import necessary libraries
 import random
 from time import sleep
 
@@ -12,60 +10,38 @@ from time import sleep
 # Define a function that randomly selects a weather condition from a list
 def weather():
     weatherForecast = ["snowy", "blizzard", "rainy", "windy", "icy", "sunny"]
-    # Randomly choose a condition from the weatherForecast list
-    weatherCondition = random.choice(weatherForecast)
-    return weatherCondition
+    return random.choice(weatherForecast)
 
 
 # Call the weather function and store the result in weatherAlert
 weatherAlert = weather()
 
 
-# Define the Vehicle Response System (VRS) function to give different responses based on the weather condition
-def vehicleResponseSytem():
-    # Check if the weather is "snowy"
-    if weatherAlert == "snowy":
-        print("\nThe National Weather Service has updated our alarm by 30 minutes because"
-              " of the forecast of", weatherAlert, "weather conditions.")
-        # Pause for 1 second before the next print statement
-        sleep(1)
-        print("\nVRS System has been engaged only allowing you to drive 55mph.")
+# Define the Vehicle Response System (VRS) function to give responses based on the weather condition
+def vehicleResponseSystem():
+    # Dictionary mapping weather conditions to delay times and speed limits
+    weather_responses = {
+        "snowy": (30, 55),
+        "blizzard": (45, 45),
+        "rainy": (15, 65),
+        "windy": (5, 75),
+        "icy": (50, 30),
+        "sunny": (0, None)  # None indicates no speed limit restriction
+    }
 
-    # Check if the weather is "blizzard"
-    elif weatherAlert == "blizzard":
-        print("\nThe National Weather Service has updated our alarm by 45 minutes because"
-              " of the forecast of", weatherAlert, "weather conditions.")
-        sleep(1)
-        print("\nVRS System has been engaged only allowing you to drive 45mph.")
+    delay, speed_limit = weather_responses.get(weatherAlert, (0, None))  # Default is sunny-like behavior
 
-    # Check if the weather is "rainy"
-    elif weatherAlert == "rainy":
-        print("\nThe National Weather Service has updated our alarm by 15 minutes because"
-              " of the forecast of", weatherAlert, "weather conditions.")
+    if speed_limit is not None:
+        print(
+            f"\nThe National Weather Service has updated our alarm by {delay} minutes because of the forecast of {weatherAlert} weather conditions.")
         sleep(1)
-        print("\nVRS System has been engaged only allowing you to drive 65mph.")
-
-    # Check if the weather is "windy"
-    elif weatherAlert == "windy":
-        print("\nThe National Weather Service has updated our alarm by 5 minutes because"
-              " of the forecast of", weatherAlert, "weather conditions.")
-        sleep(1)
-        print("\nVRS System has been engaged only allowing you to drive 75mph.")
-
-    # Check if the weather is "icy"
-    elif weatherAlert == "icy":
-        print("\nThe National Weather Service has updated our alarm by 50 minutes because"
-              " of the forecast of", weatherAlert, "weather conditions.")
-        sleep(1)
-        print("\nVRS System has been engaged only allowing you to drive 30mph.")
-
-    # If none of the above conditions are met (meaning the weather is "sunny")
+        print(f"\nVRS System has been engaged, only allowing you to drive {speed_limit} mph.")
     else:
-        print("The National Weather Service is calling for", weatherAlert,
-              "skies, drive carefully to get to your destination.")
+        print(
+            f"The National Weather Service is calling for {weatherAlert} skies, drive carefully to get to your destination.")
         sleep(1)
-        print("\nVRS system has been disengaged")
+        print("\nVRS system has been disengaged.")
 
 
 # Call the Vehicle Response System function to execute the program logic
-vehicleResponseSytem()
+vehicleResponseSystem()
