@@ -1,5 +1,7 @@
 import sys  # Importing sys module to use sys.stdout.write for printing without a newline.
 import time  # Importing time module to create a delay using time.sleep.
+import random
+from time import sleep
 
 # Adding color to the welcome message (using Cyan text color).
 print("\033[96m\nWelcome to InfoTechCenter V1.0\n\033[0m")  # Cyan color
@@ -38,9 +40,6 @@ print("\n**********************************************\n")
 print("Weather Branch\n")
 
 # Import necessary libraries
-import random
-from time import sleep
-
 
 # Define a function that randomly selects a weather condition from a list
 def weather():
@@ -80,8 +79,7 @@ def vehicleResponseSystem():
 
 # Call the Vehicle Response System function to execute the program logic
 vehicleResponseSystem()
-import random
-from time import sleep
+
 
 # Separator for visual clarity
 print("\n**********************************************\n")
